@@ -1,0 +1,15 @@
+{
+  "name": "elite-complaint-indicate-a5o15",
+  "productName": "elite-complaint-indicate-a5o15",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "owl",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "17.2.0"
+  }
+}

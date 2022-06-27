@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link href="./styles.css" rel="stylesheet" />
+		<title>Neutron Animate</title>
+	</head>
+	<body>
+		<div id="view-container">
+			<video id="camera"></video>
+			<canvas id="imageOp"></canvas>
+			<button id="capture"></button>
+
+			<span
+				class="material-symbols-rounded button"
+				style="--button: 0"
+				id="play-button"
+			>
+				play_arrow
+			</span>
+			<span
+				class="material-symbols-rounded button"
+				style="--button: 1"
+				id="camera-settings-button"
+			>
+				video_settings
+			</span>
+		</div>
+		<div id="frame-list">
+			<div
+				class="frame camera material-symbols-rounded"
+				onclick="selectCamera();"
+			>
+				add_a_photo
+			</div>
+		</div>
+
+		<script src="./renderer.js"></script>
+	</body>
+</html>
