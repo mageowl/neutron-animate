@@ -1,0 +1,49 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link href="./styles.css" rel="stylesheet" />
+		<title>Video Settings</title>
+	</head>
+	<body>
+		<div id="settings">
+			<label for="framerate">Framerate</label>
+			<input
+				type="range"
+				min="1"
+				max="32"
+				value="1"
+				id="framerate"
+				onmousemove='document.querySelector("#framerate").style = `--value: "${document.querySelector("#framerate").value}"`'
+			/>
+			<button id="save-pref">Save</button
+			><button id="export">Export Video</button>
+			<script>
+				console.log("gend");
+				addEventListener("message", (event) => {
+					console.log("gend");
+					if (event.origin !== `${location.protocol}//${location.host}`) {
+						console.log(event.origin);
+						return;
+					}
+
+					const parent = event.source;
+
+					document.querySelector("#framerate").value = event.data.fps;
+
+					document.querySelector("#save-pref").addEventListener("click", () => {
+						parent.postMessage({
+							action: "pref",
+							fps: document.querySelector("#framerate").value
+						});
+						close();
+					});
+
+					document.querySelector("#export").addEventListener("click", () => {
+						parent.postMessage({ action: "export" });
+						close();
+					});
+				});
+			</script>
+		</div>
+	</body>
+</html>
